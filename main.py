@@ -151,6 +151,6 @@ text will be translated.```''')
             await message.channel.send(result)
 
 
-TOKEN = "MTA4MTE3MTYyODcyMzAxMTYxNQ.GW5jKp.lBUr-hW2BkCe6LSEuW7NepkYuGEaBC0gjTrpNg"
+TOKEN = ""
 db_session.global_init("db/users.db")
 client.run(TOKEN)
