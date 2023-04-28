@@ -32,6 +32,8 @@ async def on_message(message):
             await message.channel.send(f'''Hello! I am a translator bot. Here is an available list of my commands:
         ```{prefix}user_add (user_id) (user's native language) (to_translate[on/off]) - Connects the user to the 
         translation function. \n
+{prefix}list_of_languages - Gives a link to the language codes
+{prefix}cat - Gives a photo of a cat :3
 {prefix}user_edit_language (user_id) (user's native language) - Changes the user's 
         primary language.\n 
 {prefix}user_edit_translating (used_id) (on/off) - Enables/disables the translation of the user's text.\n
@@ -39,6 +41,10 @@ async def on_message(message):
 {prefix}active (on/off) - Enables or disables the translation function for all.\n
 {prefix}global_language (add/delete/show) [language] - Shows/deletes/adds the language into which the text of each 
 text will be translated.```''')
+        elif command == prefix + 'cat':
+            await message.channel.send(requests.get('https://api.thecatapi.com/v1/images/search').json()[0]['url'])
+        elif command == prefix + 'list_of_languages':
+            await message.channel.send('https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes')
         elif command == prefix + 'prefix':
             cmd, new_prefix = message.content.split()
             prefix = new_prefix
@@ -161,8 +167,7 @@ text will be translated.```''')
         print(e)
 
 
-TOKEN = ""
+TOKEN = "MTA4MTE3MTYyODcyMzAxMTYxNQ.GaESy9.GjaZ9PFQlcVOEu4a9AWQIKfqEkq4vE2bJ5md0Q"
 db_session.global_init("db/users.db")
 db_sess = db_session.create_session()
 client.run(TOKEN)
-
