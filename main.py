@@ -167,7 +167,7 @@ text will be translated.```''')
         print(e)
 
 
-TOKEN = "MTA4MTE3MTYyODcyMzAxMTYxNQ.GaESy9.GjaZ9PFQlcVOEu4a9AWQIKfqEkq4vE2bJ5md0Q"
+TOKEN = ""
 db_session.global_init("db/users.db")
 db_sess = db_session.create_session()
 client.run(TOKEN)
